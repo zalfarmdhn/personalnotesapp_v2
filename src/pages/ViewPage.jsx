@@ -9,6 +9,7 @@ function ViewPage() {
     const navigate = useNavigate()
     const note = getNote(id)
     const archived = note.archived
+    const routeNotes = archived ? '/' : '/archived'
 
     return (
         <div>
@@ -24,7 +25,7 @@ function ViewPage() {
                 }}
                 onArchive={() => {
                     toggleArchive(id)
-                    navigate('/')
+                    navigate(routeNotes)
                 }}
             />
         </div>
