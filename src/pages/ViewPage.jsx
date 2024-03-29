@@ -7,7 +7,7 @@ import NoteItemAction from '../components/NoteItemAction'
 function ViewPage() {
     const {id} = useParams()
     const navigate = useNavigate()
-    const note = getNote(id || navigate('/404'))
+    const note = getNote(id)
 
     return (
         <div>
