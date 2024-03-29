@@ -1,6 +1,6 @@
 import React from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
-import {getNote, deleteNote, archiveNote} from '../utils/local-data'
+import {getNote, deleteNote, toggleArchive} from '../utils/local-data'
 import {showFormattedDate} from '../utils/index'
 import NoteItemAction from '../components/NoteItemAction'
 
@@ -8,6 +8,7 @@ function ViewPage() {
     const {id} = useParams()
     const navigate = useNavigate()
     const note = getNote(id)
+    const archived = note.archived
 
     return (
         <div>
@@ -16,13 +17,13 @@ function ViewPage() {
             <p className="detail-page__body">{note.body}</p>
             <NoteItemAction
                 id={id}
-                archived={note.archived}
+                archived={archived}
                 onDelete={() => {
                     deleteNote(id)
                     navigate('/')
                 }}
                 onArchive={() => {
-                    archiveNote(id)
+                    toggleArchive(id)
                     navigate('/')
                 }}
             />

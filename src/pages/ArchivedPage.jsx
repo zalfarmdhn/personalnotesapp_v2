@@ -68,7 +68,7 @@ class ArchivedPage extends React.Component {
                 .toLowerCase()
                 .includes(this.state.searchInput.toLowerCase())
         )
-        const filteredActive = getArchivedNotes(filteredNotes)
+        const filteredArchived = getArchivedNotes(filteredNotes)
         return (
             <div>
                 <div className="note-container">
@@ -77,7 +77,7 @@ class ArchivedPage extends React.Component {
                 </div>
                 <NoteSearchBar onSearch={this.onSearchHandler} />
                 <NoteList
-                    notes={filteredActive}
+                    notes={filteredArchived}
                     onDelete={this.onDeleteNoteHandler}
                     onArchive={this.onUnArchiveHandler}
                 />

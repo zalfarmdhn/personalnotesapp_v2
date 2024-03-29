@@ -98,6 +98,15 @@ function unarchiveNote(id) {
     })
 }
 
+function toggleArchive(id) {
+    notes = notes.map(note => {
+        if (note.id === id) {
+            return {...note, archived: !note.archived}
+        }
+        return note
+    })
+}
+
 function editNote({id, title, body}) {
     const noteToEdit = notes.find(note => note.id === id)
     noteToEdit.title = title
@@ -120,5 +129,6 @@ export {
     getNote,
     archiveNote,
     unarchiveNote,
+    toggleArchive,
     addNote,
 }
